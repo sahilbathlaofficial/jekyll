@@ -1,60 +1,28 @@
 # [Jekyll](http://jekyllrb.com/)
 
-[![Gem Version](https://img.shields.io/gem/v/jekyll.svg)][ruby-gems]
-[![Build Status](https://travis-ci.org/jekyll/jekyll.svg?branch=master)][travis]
-[![Test Coverage](https://codeclimate.com/github/jekyll/jekyll/badges/coverage.svg)][coverage]
-[![Code Climate](https://codeclimate.com/github/jekyll/jekyll/badges/gpa.svg)][codeclimate]
-[![Dependency Status](https://gemnasium.com/jekyll/jekyll.svg)][gemnasium]
-[![Security](https://hakiri.io/github/jekyll/jekyll/master.svg)][hakiri]
-
-[ruby-gems]: https://rubygems.org/gems/jekyll
-[gemnasium]: https://gemnasium.com/jekyll/jekyll
-[codeclimate]: https://codeclimate.com/github/jekyll/jekyll
-[coverage]: https://codeclimate.com/github/jekyll/jekyll/coverage
-[hakiri]: https://hakiri.io/github/jekyll/jekyll/master
-[travis]: https://travis-ci.org/jekyll/jekyll
-
-By Tom Preston-Werner, Nick Quaranto, Parker Moore, and many [awesome contributors](https://github.com/jekyll/jekyll/graphs/contributors)!
-
 Jekyll is a simple, blog-aware, static site generator perfect for personal, project, or organization sites. Think of it like a file-based CMS, without all the complexity. Jekyll takes your content, renders Markdown and Liquid templates, and spits out a complete, static website ready to be served by Apache, Nginx or another web server. Jekyll is the engine behind [GitHub Pages](http://pages.github.com), which you can use to host sites right from your GitHub repositories.
 
-## Philosophy
+**This repository is Jekyll + admin (to add posts dynamically). All the credits goes to the Jekyll team, this gem only gives an extra end point to add posts dynamically**
 
-Jekyll does what you tell it to do — no more, no less. It doesn't try to outsmart users by making bold assumptions, nor does it burden them with needless complexity and configuration. Put simply, Jekyll gets out of your way and allows you to concentrate on what truly matters: your content.
+## Want to know more about jekyll? 
 
-## Having trouble with OS X El Capitan?
-
-See: http://jekyllrb.com/docs/troubleshooting/#jekyll-amp-mac-os-x-1011
+Visit :- https://github.com/jekyll/jekyll
 
 ## Getting Started
 
-* [Install](http://jekyllrb.com/docs/installation/) the gem
-* Read up about its [Usage](http://jekyllrb.com/docs/usage/) and [Configuration](http://jekyllrb.com/docs/configuration/)
-* Take a gander at some existing [Sites](https://wiki.github.com/jekyll/jekyll/sites)
-* Fork and [Contribute](http://jekyllrb.com/docs/contributing/) your own modifications
-* Have questions? Check out our official forum community [Jekyll Talk](https://talk.jekyllrb.com/) or [`#jekyll` on irc.freenode.net](https://botbot.me/freenode/jekyll/)
+* Clone `git@github.com:sahilbathlaofficial/jekyllplusadmin.git`
+* cd jekyllplusadmin
+* gem build jekyllplusadmin.gemspec
+* gem insatll jekyllplusadmin1.0.0.gemspec
+* Now download your favorite Jekyll theme
+* Copy /admin folder to base of your Jekyll theme and reset the config
+* Copy admin.css from /admin/admin.css to css folder of your jekyll theme
+* Run jekyll serve and visit your_served_url/admin
 
-## Code of Conduct
 
-In order to have a more open and welcoming community, Jekyll adheres to a
-[code of conduct](CONDUCT.markdown) adapted from the Ruby on Rails code of
-conduct.
+## Wish to contribute?
 
-Please adhere to this code of conduct in any interactions you have in the
-Jekyll community. It is strictly enforced on all official Jekyll
-repositories, websites, and resources. If you encounter someone violating
-these terms, please let a maintainer (@parkr, @envygeeks, or @mattr-) know
-and we will address it as soon as possible.
+* Fork this repository
+* Open a pull request
+* Or mail me at sahilbathla1@gmail.com
 
-## Diving In
-
-* [Migrate](http://import.jekyllrb.com/docs/home/) from your previous system
-* Learn how the [YAML Front Matter](http://jekyllrb.com/docs/frontmatter/) works
-* Put information on your site with [Variables](http://jekyllrb.com/docs/variables/)
-* Customize the [Permalinks](http://jekyllrb.com/docs/permalinks/) your posts are generated with
-* Use the built-in [Liquid Extensions](http://jekyllrb.com/docs/templates/) to make your life easier
-* Use custom [Plugins](http://jekyllrb.com/docs/plugins/) to generate content specific to your site
-
-## License
-
-See [LICENSE](https://github.com/jekyll/jekyll/blob/master/LICENSE).
