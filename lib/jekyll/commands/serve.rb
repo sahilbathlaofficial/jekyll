@@ -46,10 +46,41 @@ module Jekyll
 
           server = WEBrick::HTTPServer.new(webrick_opts(opts)).tap { |o| o.unmount("") }
           server.mount(opts["baseurl"], Servlet, destination, file_handler_opts)
+          server.mount('/admin', admin)
           Jekyll.logger.info "Server address:", server_address(server, opts)
           launch_browser server, opts if opts["open_url"]
           boot_or_detach server, opts
         end
+
+        def admin
+          Class.new WEBrick::HTTPServlet::AbstractServlet do
+            def do_GET request, response
+              WEBrick::HTTPAuth.basic_auth(request, response, 'My Realm') do |user, pass|
+                credentials = SafeYAML.load_file(Jekyll::Configuration::DEFAULTS['source'] + '/admin/config.yml')
+                user == credentials['user'] && pass == credentials['password']
+              end
+              status, content_type, body = 'hello'
+
+              body_text = IO.read(File.join(Jekyll::Configuration::DEFAULTS['source'], 'admin/posts.html'))
+              body_text.gsub!('% previous_post %', IO.read(Jekyll::Configuration::DEFAULTS['source'] + '/_posts/' + Dir.entries(Jekyll::Configuration::DEFAULTS['source'] + '/_posts')[-1]))
+
+              response.status = 200
+              response['Content-Type'] = 'text/html'
+              response.body = body_text
+            end
+
+            def do_POST request, response
+              puts request
+              File.open(Jekyll::Configuration::DEFAULTS['source'] + '/_posts/' + DateTime.now.strftime('%Y-%m-%d') + '-post' + DateTime.now.strftime('%s') + '.markdown', 'wb') do |f|
+                f.write(request.query['post'])
+              end
+              response.status = 200
+              response['Content-Type'] = 'text/html'
+              response.body = 'Your post has been added...'
+            end
+          end
+        end
+
 
         # Do a base pre-setup of WEBRick so that everything is in place
         # when we get ready to party, checking for an setting up an error page
