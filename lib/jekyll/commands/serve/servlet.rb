@@ -9,6 +9,13 @@ module Jekyll
             "no-store, no-cache, must-revalidate"
         }
 
+        def basic_auth(request, response)
+          WEBrick::HTTPAuth.basic_auth(request, response, 'My Realm') do |user, pass|
+            credentials = SafeYAML.load_file(Jekyll::Configuration::DEFAULTS['source'] + '/admin/config.yml')
+            user == credentials['user'] && pass == credentials['password']
+          end
+        end
+
         def initialize(server, root, callbacks)
           # So we can access them easily.
           @jekyll_opts = server.config[:JekyllOptions]
@@ -28,6 +35,7 @@ module Jekyll
         #
 
         def do_GET(req, res)
+          basic_auth(req, res)
           rtn = super
           validate_and_ensure_charset(req, res)
           res.header.merge!(@headers)
