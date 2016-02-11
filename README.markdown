@@ -9,11 +9,7 @@ Jekyll is a simple, blog-aware, static site generator perfect for personal, proj
 Visit :- https://github.com/jekyll/jekyll
 
 ## Getting Started
-
-* Clone `git@github.com:sahilbathlaofficial/jekyllplusadmin.git`
-* cd jekyllplusadmin
-* gem build jekyllplusadmin.gemspec
-* gem insatll jekyllplusadmin1.0.0.gemspec
+* gem install jekyllplusadmin (sudo if necessary)
 * Now download your favorite Jekyll theme
 * Copy /admin folder to base of your Jekyll theme and reset the config
 * Copy admin.css from /admin/admin.css to css folder of your jekyll theme
